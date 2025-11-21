@@ -5,6 +5,8 @@
 #
 ################################################################################
 
+set -e
+
 echo "## Please review the Docker convenience script at https://get.docker.com before continuing."
 
 read -r -p "Do you want to run the Docker installation script? (y/N): " docker_choice
