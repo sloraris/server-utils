@@ -11,6 +11,12 @@ set -e
 TIME_ZONE="America/Denver"    # <<< SET YOUR TIMEZONE (e.g., 'America/New_York', 'Europe/London')
 # -------------------------------
 
+# Check for root privilege
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run with sudo or as root!"
+   exit 1
+fi
+
 ## 1. System Updates
 # ----------------------------------------------------
 echo "## 1. Running System Updates and Upgrades..."
@@ -42,16 +48,12 @@ fi
 ## 4. Configure motd
 # ----------------------------------------------------
 echo "## 4. Configuring ANSI motd"
-curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/motd.sh -o /tmp/motd.sh
-sudo bash /tmp/motd.sh
-sudo rm /tmp/motd.sh
+curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/motd.sh | sudo bash
 
 ## 5. Install Docker
 # ----------------------------------------------------
 echo "## 5. Installing Docker"
-curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/docker.sh -o /tmp/motd.sh
-sudo bash /tmp/docker.sh
-sudo rm /tmp/docker.sh
+curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/docker.sh | sudo bash
 
 ## 6. Finalizing
 # ----------------------------------------------------
