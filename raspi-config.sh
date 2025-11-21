@@ -56,8 +56,8 @@ sudo rm /tmp/motd.sh
 # ----------------------------------------------------
 echo "## 5. Installing Docker"
 sudo curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/docker.sh -o /tmp/docker.sh
-sudo bash /tmp/motd.sh
-sudo rm /tmp/motd.sh
+sudo bash /tmp/docker.sh
+sudo rm /tmp/docker.sh
 
 ## 6. Finalizing
 # ----------------------------------------------------
