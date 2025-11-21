@@ -18,7 +18,9 @@ echo "## Please review the Docker convenience script at https://get.docker.com b
 read -r -p "Do you want to run the Docker installation script? (y/N): " docker_choice
 if [[ "$docker_choice" =~ ^[Yy]$ ]]; then
     echo "Running convenience script..."
-    curl -fsSL https://get.docker.com | sudo bash
+    sudo curl -fsSL https://get.docker.com -o /tmp/install-docker.sh
+    sudo bash /tmp/install-docker.sh
+    sudo rm /tmp/install-docker.sh
 else
     echo "Please install Docker manually using the documentation at https://docs.docker.com/engine/install."
 fi

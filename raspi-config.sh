@@ -48,12 +48,16 @@ fi
 ## 4. Configure motd
 # ----------------------------------------------------
 echo "## 4. Configuring ANSI motd"
-curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/motd.sh | sudo bash
+sudo curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/motd.sh -o /tmp/motd.sh
+sudo bash /tmp/motd.sh
+sudo rm /tmp/motd.sh
 
 ## 5. Install Docker
 # ----------------------------------------------------
 echo "## 5. Installing Docker"
-curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/docker.sh | sudo bash
+sudo curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/docker.sh -o /tmp/docker.sh
+sudo bash /tmp/motd.sh
+sudo rm /tmp/motd.sh
 
 ## 6. Finalizing
 # ----------------------------------------------------
