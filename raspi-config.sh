@@ -1,6 +1,8 @@
 #!/bin/bash
+#
 # SCRIPT: raspi-config.sh
 # DESCRIPTION: Performs apt updates and sets timezone on a pre-configured Raspberry Pi OS Lite install.
+#
 ################################################################################
 
 # --- Configuration Variables ---
@@ -40,7 +42,13 @@ fi
 echo "## 4. Configuring ANSI motd"
 curl https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/motd.sh | bash
 
-## 5. Finalizing
+## 5. Install Docker
+# ----------------------------------------------------
+echo "## 5. Installing Docker"
+curl https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/docker.sh | bash
+
+
+## 6. Finalizing
 # ----------------------------------------------------
 echo "--- Setup Script Finished ---"
 echo "Your Pi is now updated and configured."
