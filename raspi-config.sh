@@ -15,9 +15,9 @@ TIME_ZONE="America/Denver"    # <<< SET YOUR TIMEZONE (e.g., 'America/New_York',
 # ----------------------------------------------------
 echo "## 1. Running System Updates and Upgrades..."
 # Update package lists
-apt update -y
+sudo apt update -y
 # Upgrade all installed packages
-apt upgrade -y
+sudo apt upgrade -y
 
 ## 2. Set Timezone
 # ----------------------------------------------------
@@ -44,14 +44,14 @@ fi
 echo "## 4. Configuring ANSI motd"
 curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/motd.sh -o /tmp/motd.sh
 sudo bash /tmp/motd.sh
-rm /tmp/motd.sh
+sudo rm /tmp/motd.sh
 
 ## 5. Install Docker
 # ----------------------------------------------------
 echo "## 5. Installing Docker"
 curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/docker.sh -o /tmp/motd.sh
 sudo bash /tmp/docker.sh
-rm /tmp/docker.sh
+sudo rm /tmp/docker.sh
 
 ## 6. Finalizing
 # ----------------------------------------------------

@@ -14,7 +14,7 @@ if [[ "$docker_choice" =~ ^[Yy]$ ]]; then
     echo "Running convenience script..."
     curl -fsSL https://get.docker.com -o /tmp/install-docker.sh
     sudo sh /tmp/install-docker.sh
-    rm /tmp/install-docker.sh
+    sudo rm /tmp/install-docker.sh
 else
     echo "Please install Docker manually using the documentation at https://docs.docker.com/engine/install."
 fi
