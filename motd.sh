@@ -10,6 +10,8 @@
 # 5. Creating the custom 11-ansi-hostname banner script.
 # ----------------------------------------------------------------------
 
+set -e
+
 echo "Starting MOTD setup and cleanup..."
 
 # --- 1. System Update and Dependency Installation ---

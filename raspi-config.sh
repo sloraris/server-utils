@@ -5,6 +5,8 @@
 #
 ################################################################################
 
+set -e
+
 # --- Configuration Variables ---
 TIME_ZONE="America/Denver"    # <<< SET YOUR TIMEZONE (e.g., 'America/New_York', 'Europe/London')
 # -------------------------------
@@ -41,14 +43,14 @@ fi
 # ----------------------------------------------------
 echo "## 4. Configuring ANSI motd"
 curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/motd.sh -o /tmp/motd.sh
-sudo sh /tmp/motd.sh
+sudo bash /tmp/motd.sh
 rm /tmp/motd.sh
 
 ## 5. Install Docker
 # ----------------------------------------------------
 echo "## 5. Installing Docker"
 curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/docker.sh -o /tmp/motd.sh
-sudo sh /tmp/docker.sh
+sudo bash /tmp/docker.sh
 rm /tmp/docker.sh
 
 ## 6. Finalizing
