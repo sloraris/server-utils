@@ -48,21 +48,31 @@ fi
 ## 4. Configure motd
 # ----------------------------------------------------
 echo "## 4. Configuring ANSI motd"
-sudo curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/motd.sh -o /tmp/motd.sh
-sudo bash /tmp/motd.sh
-sudo rm /tmp/motd.sh
+sudo curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/motd.sh
 
 ## 5. Install Docker
 # ----------------------------------------------------
 echo "## 5. Installing Docker"
-sudo curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/docker.sh -o /tmp/docker.sh
-sudo bash /tmp/docker.sh
-sudo rm /tmp/docker.sh
+echo "## Please review the Docker convenience script at https://get.docker.com before continuing."
+
+if ! command -v docker &> /dev/null; then
+    read -r -p "Do you want to run the Docker installation script? (y/N): " docker_choice
+    if [[ "$docker_choice" =~ ^[Yy]$ ]]; then
+        echo "Running convenience script..."
+        sudo curl -fsSL https://get.docker.com -o ./install-docker.sh
+        sudo bash ./install-docker.sh
+        sudo rm ./install-docker.sh
+    else
+        echo "Please install Docker manually using the documentation at https://docs.docker.com/engine/install."
+    fi
+else
+    echo "Docker is already installed. Skipping installation script."
+fi
 
 ## 6. Finalizing
 # ----------------------------------------------------
 echo "--- Setup Script Finished ---"
-echo "Your Pi is now updated and configured."
+echo "Debian is now updated and configured."
 
 read -r -p "Do you want to perform a soft reboot now? (y/N): " reboot_choice
 if [[ "$reboot_choice" =~ ^[Yy]$ ]]; then
