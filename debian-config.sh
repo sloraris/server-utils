@@ -53,20 +53,25 @@ sudo curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/hea
 ## 5. Install Docker
 # ----------------------------------------------------
 echo "## 5. Installing Docker"
-echo "## Please review the Docker convenience script at https://get.docker.com before continuing."
 
-if ! command -v docker &> /dev/null; then
-    read -r -p "Do you want to run the Docker installation script? (y/N): " docker_choice
-    if [[ "$docker_choice" =~ ^[Yy]$ ]]; then
-        echo "Running convenience script..."
-        sudo curl -fsSL https://get.docker.com -o ./install-docker.sh
-        sudo bash ./install-docker.sh
-        sudo rm ./install-docker.sh
+read -r -p "Do you want to install Docker? (y/N): " docker_install_choice
+if [[ "$docker_install_choice" =~ ^[Yy]$ ]]; then
+    if ! command -v docker &> /dev/null; then
+        echo "## Please review the Docker convenience script at https://get.docker.com before continuing."
+        read -r -p "Do you want to run the Docker installation script? (y/N): " docker_script_choice
+        if [[ "$docker_script_choice" =~ ^[Yy]$ ]]; then
+            echo "Running convenience script..."
+            sudo curl -fsSL https://get.docker.com -o ./install-docker.sh
+            sudo bash ./install-docker.sh
+            sudo rm ./install-docker.sh
+        else
+            echo "Please install Docker manually using the documentation at https://docs.docker.com/engine/install."
+        fi
     else
-        echo "Please install Docker manually using the documentation at https://docs.docker.com/engine/install."
+        echo "Docker is already installed. Skipping installation script."
     fi
 else
-    echo "Docker is already installed. Skipping installation script."
+    echo "Skipping Docker install."
 fi
 
 ## 6. Finalizing
