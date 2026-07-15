@@ -8,5 +8,5 @@ For onboarding Debian servers (works on AMD64 and ARM64). Performs the following
 - Installs Docker
 - Installs Komodo Periphery
 ```
-curl -fsSL https://raw.githubusercontent.com/sloraris/server-utils/refs/heads/main/debian-config.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/sloraris/server_utils/refs/heads/main/debian-config.sh | sudo bash
 ```
